@@ -9,16 +9,17 @@ const perimeter = Math.floor(circle.getAttribute("r") * 2 * Math.PI);
 // Add the perimeter value to the dasharray circle property
 circle.setAttribute("stroke-dasharray", perimeter);
 
-let currentOffset = 0;
-
+let duration;
 // create a new instance of the timer
 const timer = new Timer(durationInput, startButton, pauseButton, {
-  onStart() {
-    console.log("Timer has started");
+  onStart(totalDuration) {
+    duration = totalDuration;
   },
-  onTick() {
-    circle.setAttribute("stroke-dashoffset", currentOffset);
-    currentOffset -= 1;
+  onTick(timeRemaining) {
+    circle.setAttribute(
+      "stroke-dashoffset",
+      (perimeter * timeRemaining) / duration - perimeter
+    );
   },
   onComplete() {
     console.log("Timer is completed");
