@@ -4,26 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <title>Timer Project</title>
   </head>
   <body>
-    <div class="circle-section">
-      <svg width="200" height="200">
-        <circle
-          r="90"
-          cx="100"
-          cy="100"
-          stroke-width="10"
-          fill="transparent"
-          stroke="orange"
-          stroke-dasharray="560"
-          stroke-dashoffset="128"
-        ></circle>
-      </svg>
+    <div class="timer">
+      <div class="controls">
+        <input id="duration" value="3" />
+        <div>
+          <button id="start"><i class="fas fa-play"></i></button>
+          <button id="pause"><i class="fas fa-pause"></i></button>
+        </div>
+      </div>
+      <div class="circle-section">
+        <svg class="dial">
+          <circle
+            r="190"
+            cx="0"
+            cy="200"
+            stroke-width="15"
+            fill="transparent"
+            stroke="orange"
+            transform="rotate(-90 100 100)"
+          ></circle>
+        </svg>
+      </div>
     </div>
-    <input id="duration" value="30" />
-    <button id="start">Start</button>
-    <button id="pause">pause</button>
 
     <script src="./timer.js"></script>
     <script src="./script.js"></script>
